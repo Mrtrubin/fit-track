@@ -1,0 +1,32 @@
+name: Upstream Sync
+
+on:
+  schedule:
+    # 每小时的第 0 分钟运行一次
+    - cron: '0 * * * *'
+  # 允许你在 Actions 页面手动点击运行
+  workflow_dispatch:
+
+jobs:
+  sync_latest_from_upstream:
+    name: Sync latest commits from upstream repo
+    runs-on: ubuntu-latest
+    # 只在 Fork 仓库中运行，避免在上游原仓库误触发
+    if: ${{ github.event.repository.fork }}
+    steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Sync upstream changes
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
+        with:
+          # 把这里换成上游原仓库的 "用户名/仓库名"
+          upstream_sync_repo: linbeinb66/fit-track
+          # 上游仓库的主分支名，通常是 main 或 master
+          upstream_sync_branch: main
+          # 你 Fork 仓库里要同步的分支名
+          target_sync_branch: main
+          # 使用 GitHub 自动生成的 Token 推送，不需要手动配置
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
