@@ -13,11 +13,11 @@
 ## 快速开始
 
 ```bash
-npm install        # 安装依赖（已装可跳过）
-npm run dev        # 开发模式 → http://localhost:3000
-npm run build      # 生产构建
-npm run start      # 生产模式预览
-npm test           # 端到端冒烟测试（37 项断言）
+pnpm install       # 安装依赖（已装可跳过）
+pnpm dev           # 开发模式 → http://localhost:3000
+pnpm build         # 生产构建
+pnpm start         # 生产模式预览
+pnpm test          # 端到端冒烟测试（37 项断言）
 ```
 
 ## 功能

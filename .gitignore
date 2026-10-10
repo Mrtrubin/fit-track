@@ -45,3 +45,6 @@ next-env.d.ts
 *.tar.gz
 dev-server.log
 AGENTS.md
+
+
+.workbuddy-ai
