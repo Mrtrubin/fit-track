@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 部署包和日志
+*.tar
+*.tar.gz
+dev-server.log
+AGENTS.md
