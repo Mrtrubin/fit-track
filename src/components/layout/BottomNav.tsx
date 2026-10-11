@@ -22,8 +22,8 @@ export default function BottomNav() {
     seedIfNeeded();
   }, []);
 
-  // 初始化向导与全屏训练页不显示底部导航
-  if (pathname.startsWith("/setup") || pathname.startsWith("/workout/session")) {
+  // 全屏训练页不显示底部导航
+  if (pathname.startsWith("/workout/session")) {
     return null;
   }
 

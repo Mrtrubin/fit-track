@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import "./globals.css";
-import BottomNav from "@/components/layout/BottomNav";
 import AuthGate from "@/components/auth/AuthGate";
 
 export const metadata: Metadata = {
@@ -22,9 +21,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full">
         <Suspense fallback={null}>
           <AuthGate>{children}</AuthGate>
-        </Suspense>
-        <Suspense fallback={null}>
-          <BottomNav />
         </Suspense>
       </body>
     </html>
